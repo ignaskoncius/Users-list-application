@@ -13,4 +13,14 @@ router.post('/users/new', async (req, res) => {
   }
 });
 
+// get all users
+router.get('/allUsers', async (req, res) => {
+  try {
+    const allUsers = await UsersModel.find();
+    res.json(allUsers);
+  } catch (error) {
+    res.status(500).json();
+  }
+});
+
 module.exports = router;
