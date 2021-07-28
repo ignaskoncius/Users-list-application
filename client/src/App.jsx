@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import UsersForm from './components/usersForm';
+import UsersForm from './components/UsersForm';
+import UsersList from './components/UsersList';
 import { getAllUsers } from './utils/requests';
 
 class App extends Component {
@@ -21,8 +22,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App container d-flex justify-content-center">
-        <UsersForm></UsersForm>
+      <div className="App">
+        <div className="container">
+          <UsersForm></UsersForm>
+          <UsersList></UsersList>
+        </div>
       </div>
     );
   }
