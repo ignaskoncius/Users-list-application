@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import UsersForm from './components/UsersForm';
 import UsersList from './components/UsersList';
-import { getAllUsers } from './utils/requests';
+import { getAllUsers, createUserSend } from './utils/requests';
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +20,11 @@ class App extends Component {
     console.log(this.state.allUsers);
   };
 
+  createNewUser = async (dataToCreateNewUser) => {
+    await createUserSend(dataToCreateNewUser);
+    this.getAllUsersFromDb();
+  };
+
   handleDelete = (userId) => {
     console.log('trying to delete', userId);
   };
@@ -28,7 +33,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container">
-          <UsersForm onGetAllUsersFromDb={this.getAllUsersFromDb}></UsersForm>
+          <UsersForm onGetAllUsersFromDb={this.getAllUsersFromDb} onCreateNewUser={this.createNewUser}></UsersForm>
           <UsersList onDelete={this.handleDelete} allUsers={this.state.allUsers || []}></UsersList>
         </div>
       </div>

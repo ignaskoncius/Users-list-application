@@ -8,3 +8,12 @@ export const getAllUsers = async () => {
     console.log(error);
   }
 };
+
+export const createUserSend = async (dataToCreateNewUser) => {
+  try {
+    const createdUser = await axios.post('http://localhost:4000/users/new', dataToCreateNewUser);
+    return createdUser.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
