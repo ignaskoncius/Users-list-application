@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import OneUser from './OneUser';
 
 class UsersList extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     if (!this.props.allUsers.length) return <h2>No users to show</h2>;
     return (

@@ -8,6 +8,15 @@ class UsersForm extends Component {
     password: '',
   };
 
+  componentDidMount() {
+    this.props.user && this.getStateFromProps();
+  }
+
+  getStateFromProps() {
+    const { name, age, email, password } = this.props.user;
+    this.setState({ name, age, email, password });
+  }
+
   resetState = () => {
     this.setState({ name: '', age: '', email: '', password: '' });
   };
@@ -29,7 +38,7 @@ class UsersForm extends Component {
     const { state: s } = this;
     return (
       <div className="w-50">
-        <h2 className="text-center">Create new user</h2>
+        {this.props.user ? null : <h2 className="text-center">Create new user</h2>}
         <form autoComplete="off" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <input
@@ -71,9 +80,7 @@ class UsersForm extends Component {
               placeholder="Enter password"
             />
           </div>
-          <button type="submit" className="btn btn-primary">
-            Submit form
-          </button>
+          <button className="btn btn-primary">{this.props.user ? 'Update user' : 'Create user'}</button>
         </form>
       </div>
     );
