@@ -25,7 +25,7 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <UsersForm onGetAllUsersFromDb={this.getAllUsersFromDb}></UsersForm>
-          <UsersList></UsersList>
+          <UsersList allUsers={this.state.allUsers || []}></UsersList>
         </div>
       </div>
     );
