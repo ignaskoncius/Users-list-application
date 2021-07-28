@@ -8,7 +8,7 @@ class UsersList extends Component {
   }
 
   render() {
-    if (!this.props.allUsers.length) return <h2>No users to show</h2>;
+    if (!this.props.allUsers.length) return <h2 className="text-center">No users to show</h2>;
     return (
       <div>
         <h2 className="text-center">Users list</h2>
