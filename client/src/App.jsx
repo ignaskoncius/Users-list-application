@@ -20,12 +20,16 @@ class App extends Component {
     console.log(this.state.allUsers);
   };
 
+  handleDelete = (userId) => {
+    console.log('trying to delete', userId);
+  };
+
   render() {
     return (
       <div className="App">
         <div className="container">
           <UsersForm onGetAllUsersFromDb={this.getAllUsersFromDb}></UsersForm>
-          <UsersList allUsers={this.state.allUsers || []}></UsersList>
+          <UsersList onDelete={this.handleDelete} allUsers={this.state.allUsers || []}></UsersList>
         </div>
       </div>
     );

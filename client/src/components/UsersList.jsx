@@ -10,7 +10,7 @@ class UsersList extends Component {
         <h2>Users list</h2>
         <div className="items-list d-flex flex-wrap">
           {this.props.allUsers.map((user) => (
-            <OneUser myUser={user} key={user._id}></OneUser>
+            <OneUser onDelete={this.props.onDelete} myUser={user} key={user._id}></OneUser>
           ))}
         </div>
       </div>

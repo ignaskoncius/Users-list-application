@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class OneUser extends Component {
   state = {};
   render() {
-    const { name, age, email, password } = this.props.myUser;
+    const { name, age, email, password, _id } = this.props.myUser;
     return (
       <div className="card m-2 w-25">
         <div className="card-body">
@@ -14,7 +14,9 @@ class OneUser extends Component {
         </div>
         <div className="card-footer">
           <button className="btn btn-success">Edit</button>
-          <button className="btn btn-danger">Delete</button>
+          <button onClick={() => this.props.onDelete(_id)} className="btn btn-danger">
+            Delete
+          </button>
         </div>
       </div>
     );
