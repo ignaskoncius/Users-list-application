@@ -6,7 +6,7 @@ class App extends Component {
   state = {};
   render() {
     return (
-      <div className="App">
+      <div className="App container d-flex justify-content-center">
         <UsersForm></UsersForm>
       </div>
     );

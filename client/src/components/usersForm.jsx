@@ -19,7 +19,7 @@ class UsersForm extends Component {
           <div className="form-group">
             <input type="text" className="form-control" name="password" placeholder="Enter password" />
           </div>
-          <button type="button" className="btn btn-success mt-3">
+          <button type="button" className="btn btn-success">
             Submit form
           </button>
         </form>
