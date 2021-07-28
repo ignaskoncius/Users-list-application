@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container">
-          <UsersForm></UsersForm>
+          <UsersForm onGetAllUsersFromDb={this.getAllUsersFromDb}></UsersForm>
           <UsersList></UsersList>
         </div>
       </div>
