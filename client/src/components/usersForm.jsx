@@ -41,7 +41,7 @@ class UsersForm extends Component {
   render() {
     const { state: s } = this;
     return (
-      <div className="w-50">
+      <div className={this.props.user ? 'card-body' : 'w-50'}>
         {this.props.user ? null : <h2 className="text-center">Create new user</h2>}
         <form autoComplete="off" onSubmit={this.handleSubmit}>
           <div className="form-group">
