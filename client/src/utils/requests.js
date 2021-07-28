@@ -17,3 +17,11 @@ export const createUserSend = async (dataToCreateNewUser) => {
     console.log(error);
   }
 };
+
+export const deleteUser = async (userId) => {
+  try {
+    await axios.delete('http://localhost:4000/allUsers/delete/' + userId);
+  } catch (error) {
+    console.log(error);
+  }
+};

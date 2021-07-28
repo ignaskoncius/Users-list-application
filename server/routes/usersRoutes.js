@@ -23,4 +23,14 @@ router.get('/allUsers', async (req, res) => {
   }
 });
 
+// delete route
+router.delete('/allUsers/delete/:userId', async (req, res) => {
+  try {
+    const deleteResult = await UsersModel.findByIdAndDelete(req.params.userId);
+    res.json(deleteResult);
+  } catch (error) {
+    res.status(500).json();
+  }
+});
+
 module.exports = router;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import UsersForm from './components/UsersForm';
 import UsersList from './components/UsersList';
-import { getAllUsers, createUserSend } from './utils/requests';
+import { getAllUsers, createUserSend, deleteUser } from './utils/requests';
 
 class App extends Component {
   constructor(props) {
@@ -25,8 +25,9 @@ class App extends Component {
     this.getAllUsersFromDb();
   };
 
-  handleDelete = (userId) => {
-    console.log('trying to delete', userId);
+  handleDelete = async (userId) => {
+    await deleteUser(userId);
+    this.getAllUsersFromDb();
   };
 
   render() {
