@@ -25,6 +25,10 @@ class UsersForm extends Component {
     event.preventDefault();
     const { name, age, email, password } = this.state;
     const newUserObjToCreate = { name, age, email, password };
+    if (this.props.user) {
+      this.props.onEdit(newUserObjToCreate);
+      return;
+    }
     await this.props.onCreateNewUser(newUserObjToCreate);
     this.resetState();
     this.props.onGetAllUsersFromDb();
