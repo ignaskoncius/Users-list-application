@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import UsersForm from './components/UsersForm';
 import UsersList from './components/UsersList';
-import { getAllUsers, createUserSend, deleteUser } from './utils/requests';
+import { getAllUsers, createUserSend, deleteUser, updateUserData } from './utils/requests';
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +30,12 @@ class App extends Component {
     this.getAllUsersFromDb();
   };
 
+  updateUser = async (userId, updatedUserDetails) => {
+    console.log(userId, updatedUserDetails);
+    await updateUserData(userId, updatedUserDetails);
+    this.getAllUsersFromDb();
+  };
+
   render() {
     return (
       <div className="App">
@@ -37,7 +43,11 @@ class App extends Component {
           <div className="d-flex justify-content-center">
             <UsersForm onGetAllUsersFromDb={this.getAllUsersFromDb} onCreateNewUser={this.createNewUser}></UsersForm>
           </div>
-          <UsersList onDelete={this.handleDelete} allUsers={this.state.allUsers || []}></UsersList>
+          <UsersList
+            onUpdate={this.updateUser}
+            onDelete={this.handleDelete}
+            allUsers={this.state.allUsers || []}
+          ></UsersList>
         </div>
       </div>
     );
