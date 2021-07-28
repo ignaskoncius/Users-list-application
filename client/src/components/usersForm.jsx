@@ -29,7 +29,7 @@ class UsersForm extends Component {
     const { state: s } = this;
     return (
       <div className="w-50">
-        <h2>Create new user</h2>
+        <h2 className="text-center">Create new user</h2>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <input

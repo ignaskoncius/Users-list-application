@@ -34,7 +34,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container">
-          <UsersForm onGetAllUsersFromDb={this.getAllUsersFromDb} onCreateNewUser={this.createNewUser}></UsersForm>
+          <div className="d-flex justify-content-center">
+            <UsersForm onGetAllUsersFromDb={this.getAllUsersFromDb} onCreateNewUser={this.createNewUser}></UsersForm>
+          </div>
           <UsersList onDelete={this.handleDelete} allUsers={this.state.allUsers || []}></UsersList>
         </div>
       </div>

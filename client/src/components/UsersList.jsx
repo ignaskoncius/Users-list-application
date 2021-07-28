@@ -7,8 +7,8 @@ class UsersList extends Component {
     if (!this.props.allUsers.length) return <h2>No users to show</h2>;
     return (
       <div>
-        <h2>Users list</h2>
-        <div className="items-list d-flex flex-wrap">
+        <h2 className="text-center">Users list</h2>
+        <div className="items-list d-flex justify-content-center flex-wrap">
           {this.props.allUsers.map((user) => (
             <OneUser onDelete={this.props.onDelete} myUser={user} key={user._id}></OneUser>
           ))}
