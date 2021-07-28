@@ -73,7 +73,7 @@ class UsersForm extends Component {
               placeholder="Enter password"
             />
           </div>
-          <button type="submit" className="btn btn-success">
+          <button type="submit" className="btn btn-primary">
             Submit form
           </button>
         </form>
